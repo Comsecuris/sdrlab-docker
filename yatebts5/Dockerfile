@@ -13,6 +13,8 @@ RUN sha256sum -c CHECKSUMS && tar -xzf yate-6.0.0-1.tar.gz && tar -xzf yate-bts-
 RUN cd yate && ./configure --enable-usrp && make -j8 && make install
 # build and install YateBTS
 RUN cd yate-bts && ./configure && make -j8 && make install
+# the FPGA bitstream for the USRP1 is copied into the wrong directory by YateBTS. Fix by symlinking
+RUN cd /usr/local/share/usrp/rev4/ && ln -s /usr/local/lib/yate/server/bts/std_inband.rbf .
 # Auxilliary tools
 RUN wget http://ttsou.github.com/kalibrate/kal-v0.4.1.tar.bz2
 RUN tar -xjf kal-v0.4.1.tar.bz2 && cd kal-v0.4.1 && autoreconf -i && PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig ./configure && make
