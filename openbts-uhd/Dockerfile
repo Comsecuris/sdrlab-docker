@@ -6,7 +6,7 @@ WORKDIR /home/user/src
 # install OpenBTS deps
 RUN apt-get install -y libortp-dev libsqlite3-dev libreadline-dev libzmq3-dev libosip2-dev psmisc sqlite3 libtool-bin
 
-# kalibrate, which we find quite indespensable
+# kalibrate, which we find quite indispensable
 RUN git clone http://github.com/ttsou/kalibrate-uhd.git
 RUN cd kalibrate-uhd && autoreconf -i && ./configure && make install
 RUN git clone https://github.com/anatol/google-coredumper

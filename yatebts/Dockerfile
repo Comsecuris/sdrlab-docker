@@ -13,6 +13,6 @@ RUN sha256sum -c CHECKSUMS && tar -xzf yate-6.0.0-1.tar.gz && tar -xzf yate-bts-
 RUN cd yate && ./configure && make && make install
 # build and install YateBTS
 RUN cd yate-bts && ./configure && make && make install
-# kalibrate, which we find quite indespensable
+# kalibrate, which we find quite indispensable
 RUN git clone http://github.com/ttsou/kalibrate-uhd.git
 RUN cd kalibrate-uhd && autoreconf -i && ./configure && make install

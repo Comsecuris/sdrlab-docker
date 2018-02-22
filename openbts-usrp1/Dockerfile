@@ -6,7 +6,7 @@ WORKDIR /home/user/src
 # install OpenBTS deps
 RUN apt-get install -y libortp-dev libsqlite3-dev libreadline-dev libzmq3-dev libosip2-dev psmisc sqlite3 libtool-bin
 
-# kalibrate, which we find quite indespensable
+# kalibrate, which we find quite indispensable
 RUN apt-get install -y wget
 RUN wget http://ttsou.github.com/kalibrate/kal-v0.4.1.tar.bz2
 RUN tar -xjf kal-v0.4.1.tar.bz2 && cd kal-v0.4.1 && autoreconf -i && PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig ./configure && make
